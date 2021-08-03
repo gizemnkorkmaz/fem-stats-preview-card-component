@@ -1,0 +1,100 @@
+main {
+  background-color: $main-background;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  font-family: Inter;
+}
+
+.card {
+  $border-radius: 5px;
+
+  background-color: $card-background;
+  width: 272px;
+  margin: auto;
+  border-radius: $border-radius;
+  @include mq("desktop", min) {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 989px;
+  }
+  &__image {
+    @include mq("desktop", min) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      overflow: none;
+    }
+    img {
+      width: 100%;
+      border-radius: $border-radius $border-radius 0 0;
+      mix-blend-mode: luminosity;
+      @include mq("desktop", min) {
+        flex: 1;
+        overflow: none;
+        width: 110%;
+        border-radius: 0 $border-radius $border-radius 0;
+      }
+    }
+  }
+  &__info {
+    text-align: center;
+    @include mq("desktop", min) {
+      flex: 1;
+      text-align: left;
+      padding: 40px 0 40px 45px;
+    }
+    > * {
+      margin: 30px auto;
+    }
+    &__header {
+      color: $main-heading;
+      width: 240px;
+      @include mq("desktop", min) {
+        width: 308px;
+        margin: 0;
+        font-size: 29px;
+      }
+      .accent {
+        color: $accent;
+      }
+    }
+    &__text {
+      color: $main-paragraph;
+      font-size: $font-size;
+      line-height: 25px;
+      @include mq("desktop", min) {
+        text-align: left;
+        width: 375px;
+        margin: 30px 0;
+      }
+    }
+    &__stats {
+      @include mq("desktop", min) {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+      }
+      .stats {
+        line-height: 25px;
+        margin: 30px auto;
+        @include mq("desktop", min) {
+          margin-right: 100px;
+          margin-left: 0;
+          margin-bottom: 0;
+        }
+        &__heading {
+          color: $stat-heading;
+          font-size: 10px;
+          font-family: Lexend Deca;
+        }
+        &__detail {
+          color: $main-heading;
+          font-weight: 600;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
